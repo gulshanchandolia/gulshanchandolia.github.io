@@ -237,12 +237,13 @@ body{
 	transform: translate(-50%);
 	position: sticky;
 	z-index: 1;
-	width: 80px;
+	text-align: center;
+	width: 70px;
 }
 
 .social-icons ul li{
-	height: 40px;
-	width: 40px;
+	height: 60px;
+	width: 60px;
 	list-style-type: none;
 	padding-left: 12px;
 	padding-top: 6px;
