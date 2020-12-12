@@ -71,6 +71,12 @@ body{
 	margin-bottom: -130px;
 }
 
+.about h3{
+	padding-left: 10px;
+	background-color: #000;
+	color:#fff;
+}
+
 .profile-img{
 	height: 300px;
 	margin-bottom: 30px;
@@ -131,6 +137,7 @@ body{
 }
 
 .resume h3{
+	padding-bottom: 3px;
 	margin-bottom: 50px;
 	background-color: #000;
 	color: #fff;
@@ -190,6 +197,7 @@ body{
 }
 
 .portfolio h3{
+	padding-bottom: 5px;
 	color: #fff;
 	font-size: 40px;
 	background-color: #000;
