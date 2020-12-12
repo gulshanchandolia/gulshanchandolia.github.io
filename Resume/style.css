@@ -132,6 +132,8 @@ body{
 
 .resume h3{
 	margin-bottom: 50px;
+	background-color: #000;
+	color: #fff;
 }
 
 .timeline{
@@ -183,7 +185,6 @@ body{
 }
 
 .portfolio{
-	background-color: #000;
 	padding-top: 50px;
 	padding-bottom: 50px;
 }
@@ -191,16 +192,18 @@ body{
 .portfolio h3{
 	color: #fff;
 	font-size: 40px;
+	background-color: #000;
 } 
 
 .portfolio img{
 	margin-top: 20px;
     width: 90%;
-    background-size: cover;
+	background-size: cover;
+	border: 5px solid #000;
 } 
 
+
 .portfolio .row{
-	padding: 30px 0;
 	text-align: center;
 	margin-top: 10px;
 }
