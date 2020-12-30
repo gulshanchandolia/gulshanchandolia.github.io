@@ -234,26 +234,26 @@ body{
 	font-size: 40px;
 }
 
-.contact .btn{
+.contact .btn, .button-success{
 	padding: 10px 25px 10px 25px;
 	color: #fff;
-	margin: 5px;
+	margin: 15px;
 	border-radius: 30px;
 	border: 2px solid #fff;
 	background: transparent;
 }
  
-.contact .btn:focus{
+.contact .button-success:focus, .btn:focus{
 	box-shadow: none !important;
 }
 
-.contact .btn:hover{
+.contact .button-success:hover, .btn:hover{
 	border: 2px solid rgb(48, 139, 243) !important;
 	background-color: rgb(48, 139, 243) !important;
 	transition: 1s;
 }
 
-.contact .btn .fa{
+.contact .btn .fa, .button-success .fa{
 	margin-right: 10px;
 }
 
@@ -284,4 +284,26 @@ body{
 	color: #fff;
 	background: #000;
 
+}
+
+/*Email contact*/
+
+textarea {
+	width: 100%;
+	background-color: #000;
+	color: #fff;
+}
+.content-head {
+	font-weight: 400;
+	text-transform: uppercase;
+	letter-spacing: 0.1em; 	
+}
+.is-center {
+	text-align: center;
+}
+#name, #email {
+	margin: 20px 20px;
+	width: 50%;
+	background-color: #000;
+	color: #fff;
 }
