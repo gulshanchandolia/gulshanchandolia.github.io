@@ -288,6 +288,10 @@ body{
 
 /*Email contact*/
 
+.pure-group{
+	padding: 0px 140px;
+}
+
 textarea {
 	width: 100%;
 	background-color: #000;
