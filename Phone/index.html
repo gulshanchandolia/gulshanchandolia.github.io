@@ -1,16 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+	  
+    <!-- JavaScript Bundle with Popper -->
+	  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+        box-sizing: border-box;
+        }
+
+        input[type=text], [type=number], select, textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        resize: vertical;
+        }
+
+        label {
+        padding: 12px 12px 12px 0;
+        display: inline-block;
+        }
+
+        input[type=button] {
+        background-color: #04AA6D;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        float: right;
+        }
+
+        input[type=button]:hover {
+        background-color: #45a049;
+        }
+
+        body {
+        background: #EBF0F5;
+        }
+
+        .container {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+        }
+
+        .col-25 {
+        float: left;
+        width: 25%;
+        margin-top: 6px;
+        }
+
+        .col-75 {
+        float: left;
+        width: 75%;
+        margin-top: 6px;
+        }
+
+        .submit-btn{
+        margin-top: 5%;
+        }
+
+        .tabCss{
+        margin-top: 7%;
+        }
+
+        .card {
+        background: white;
+        padding: 60px;
+        border-radius: 4px;
+        box-shadow: 0 2px 3px #C8D0D8;
+        display: inline-block;
+        margin: 0 auto;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+        content: "";
+        display: table;
+        clear: both;
+        }
+
+        /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+        .col-25, .col-75, input[type=submit] {
+            width: 100%;
+            margin-top: 75;
+        }
+        }
+    </style>
 </head>
 <body>
-    <div>
-        <input type="text" placeholder="Enter mobile phone number" id="mobile_phone" />
-        <button onclick="person_dob(document.getElementById('mobile_phone').value)" id="confirm">Submit</button>
-    </div> 
+    <div class="container">
+        <div class="row">
+            <div class="col-25">
+                <label for="mobile_phone">Phone:</label>
+            </div>
+            <div class="col-75">
+                <input type="number" maxlength="10" placeholder="Enter mobile phone number" id="mobile_phone" />
+            </div>
+        </div>
+        <div class="row submit-btn">
+            <input type="button" value="Search" onclick="person_dob(document.getElementById('mobile_phone').value)" id="confirm" />
+        </div>
+        <div class="row tabCss">
+            <table>
+                <thead>
+                    <th>Name</th>
+                    <th>DOB</th>
+                </thead>
+                <tbody id="person_data">
+                </tbody>
+            </table>
+        </div>
+    </div>
     <script type="text/javascript"> 
         function person_dob(number){
             var myHeaders = new Headers();
@@ -18,14 +128,7 @@
             myHeaders.append("accept-encoding", "gzip, deflate, br");
             myHeaders.append("accept-language", "en-US,en;q=0.9");
             myHeaders.append("authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2MjI3ODcsInVzZXJfbmFtZSI6IjkzMTQzNzAxMTMiLCJkaXNwbGF5X25hbWUiOiJTVUJJVEEgS1VNQVJJIiwicm9sZSI6NywibW9iaWxlX251bWJlciI6OTMxNDM3MDExMywiY291bnRyeV9pZCI6MSwic3RhdGVfaWQiOjI5LCJkaXN0cmljdF9pZCI6NTAxLCJibG9ja19pZCI6MjgxNCwiZmFjaWxpdHlfaWQiOjEzMTg5LCJ1c2VyX2xldmVsIjoiRmFjaWxpdHkiLCJtaW5pc3RyeV9pZCI6MTEsInN1Yl9jYXRlZ29yeV9pZCI6IltcIlwiXSIsImluc3RpdHV0aW9uX2lkIjpudWxsLCJ1c2VyX3JvbGVfZGVzY3JpcHRpb24iOiJWYWNjaW5hdG9yIiwicm9sZU1vZGlmaWVkRGF0ZSI6IjIwMjAtMTEtMDlUMjA6MzM6MzMuMDAwWiIsImlzU3VwZXJ2aXNvciI6MCwidWEiOiJNb3ppbGxhLzUuMCAoTGludXg7IEFuZHJvaWQgNi4wOyBOZXh1cyA1IEJ1aWxkL01SQTU4TikgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzEwNS4wLjAuMCBNb2JpbGUgU2FmYXJpLzUzNy4zNiIsImRhdGVfbW9kaWZpZWQiOiIyMDIyLTA5LTEyVDE3OjExOjI5LjUwM1oiLCJzZXNzaW9uX3NpdGVfaWQiOjY0NTM1NiwibWF0ZXJpYWxfaWQiOm51bGwsImNvbnNpZ25tZW50X2lkIjpudWxsLCJzb3VyY2UiOm51bGwsInN1Yl9jZW50ZXJfaWQiOm51bGwsImlhdCI6MTY2MzAwMjY4OSwiZXhwIjoxNjYzMDMxNDg5fQ.p94z_xiAs_BKyRBVWCLsJ-P0opBA7Dveic6XLwpMK_0");
-            myHeaders.append("content-length", "61");
             myHeaders.append("content-type", "application/json");
-            myHeaders.append("origin", "https://app.cowin.gov.in");
-            myHeaders.append("referer", "https://app.cowin.gov.in/");
-            myHeaders.append("sec-ch-ua", "\"Google Chrome\";v=\"105\", \"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"105\"");
-            myHeaders.append("sec-ch-ua-mobile", "?1");
-            myHeaders.append("sec-ch-ua-platform", "\"Android\"");
-            myHeaders.append("sec-fetch-dest", "empty");
             myHeaders.append("sec-fetch-mode", "cors");
             myHeaders.append("sec-fetch-site", "same-site");
 
@@ -46,14 +149,19 @@
             .then(response => response.text())
             .then(result => {
                 let data = JSON.parse(result)
-                    if(data.length){
-                        for (let inx in data){
-                            let name = data[inx].ben_name
-                            let dob = data[inx].dob
-                            console.log("NAME: ",name, " DOB: ", dob)
-                        }
-                    }            
-                            })
+                let tabBdoy = document.getElementById('person_data');
+                tabBdoy.innerHTML = null;
+                if(data.length){
+                    let tdData = '';
+                    for (let inx in data){
+                        let name = data[inx].ben_name
+                        let dob = data[inx].dob
+                        tdData += `<td>${name}</td>`
+                        tdData += `<td>${dob}</td>`
+                    }
+                    tabBdoy.innerHTML = tdData
+                }            
+            })
             .catch(error => console.log('error', error));
         }
     </script>
